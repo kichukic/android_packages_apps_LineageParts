@@ -6,7 +6,7 @@
 -->
 <resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
 
-    <string name="lineageparts_title">LineageOS Settings</string>
+    <string name="lineageparts_title">KIC OS Settings</string>
 
     <!-- Generic stuff used everywhere -->
     <string name="loading">Loading\u2026</string>
@@ -34,7 +34,7 @@
 
     <!-- Privacy Settings Header item -->
     <string name="privacy_settings_title">Privacy</string>
-    <string name="privacy_settings_category" translatable="false">LineageOS</string>
+    <string name="privacy_settings_category" translatable="false">KIC OS</string>
 
     <!-- Notification channels -->
     <string name="channel_light_settings_id" translatable="false">light_settings</string>
@@ -553,7 +553,7 @@
 
     <!-- Anonymous Statistics #Lineage -->
     <!-- About device screen, list item title. Takes the user to the screen about opting in or out of anonymous statistics. -->
-    <string name="anonymous_statistics_title">LineageOS statistics</string>
+    <string name="anonymous_statistics_title">KIC OS statistics</string>
     <string name="anonymous_statistics_summary">Help make LineageOS better by opting into anonymous statistics reporting</string>
     <string name="anonymous_statistics_warning_title">About</string>
     <string name="anonymous_statistics_warning">Opting into LineageOS Statistics will allow non-personal data to be submitted to the
@@ -651,7 +651,7 @@
     <string name="touchscreen_gesture_action_ambient_display">Show ambient display</string>
 
     <!-- Egg: Title for the easter egg activity -->
-    <string name="egg_title" translatable="false">LineageOS Easter Egg</string>
+    <string name="egg_title" translatable="false">KIC OS Easter Egg</string>
 
     <!-- Trust interface -->
     <string name="trust_title" translatable="false">@*lineageos.platform:string/trust_feature_name</string>
