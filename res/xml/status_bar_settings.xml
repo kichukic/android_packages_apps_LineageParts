@@ -69,6 +69,42 @@
             android:entryValues="@array/status_bar_am_pm_values"
             android:defaultValue="2"
             app:useSimpleSummaryProvider="true" />
+
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="status_bar_clock_date_display"
+            android:title="@string/status_bar_clock_date_display_title"
+            android:dialogTitle="@string/status_bar_clock_date_display_title"
+            android:entries="@array/status_bar_clock_date_display_entries"
+            android:entryValues="@array/status_bar_clock_date_display_values"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true" />
+
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="status_bar_clock_date_style"
+            android:title="@string/status_bar_clock_date_style_title"
+            android:dialogTitle="@string/status_bar_clock_date_style_title"
+            android:entries="@array/status_bar_clock_date_style_entries"
+            android:entryValues="@array/status_bar_clock_date_style_values"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true" />
+
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="status_bar_clock_date_position"
+            android:title="@string/status_bar_clock_date_position_title"
+            android:dialogTitle="@string/status_bar_clock_date_position_title"
+            android:entries="@array/status_bar_clock_date_position_entries"
+            android:entryValues="@array/status_bar_clock_date_position_values"
+            android:defaultValue="0"
+            app:useSimpleSummaryProvider="true" />
+
+        <lineageos.preference.LineageSystemSettingListPreference
+            android:key="status_bar_clock_date_format"
+            android:title="@string/status_bar_clock_date_format_title"
+            android:dialogTitle="@string/status_bar_clock_date_format_title"
+            android:entries="@array/status_bar_clock_date_format_entries_list"
+            android:entryValues="@array/status_bar_clock_date_format_values_list"
+            android:defaultValue="EEE"
+            app:useSimpleSummaryProvider="true" />
     </PreferenceCategory>
 
     <PreferenceCategory

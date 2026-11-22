@@ -41,6 +41,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
 
     private static final String STATUS_BAR_CLOCK_STYLE = "status_bar_clock";
     private static final String STATUS_BAR_AM_PM = "status_bar_am_pm";
+    private static final String STATUS_BAR_CLOCK_DATE_DISPLAY = "status_bar_clock_date_display";
+    private static final String STATUS_BAR_CLOCK_DATE_STYLE = "status_bar_clock_date_style";
+    private static final String STATUS_BAR_CLOCK_DATE_POSITION = "status_bar_clock_date_position";
+    private static final String STATUS_BAR_CLOCK_DATE_FORMAT = "status_bar_clock_date_format";
     private static final String STATUS_BAR_BATTERY_STYLE = "status_bar_battery_style";
     private static final String STATUS_BAR_SHOW_BATTERY_PERCENT = "status_bar_show_battery_percent";
     private static final String STATUS_BAR_QUICK_QS_PULLDOWN = "qs_quick_pulldown";
@@ -60,6 +64,10 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
     private LineageSystemSettingListPreference mQuickPulldown;
     private LineageSystemSettingListPreference mStatusBarClock;
     private LineageSystemSettingListPreference mStatusBarAmPm;
+    private LineageSystemSettingListPreference mStatusBarClockDateDisplay;
+    private LineageSystemSettingListPreference mStatusBarClockDateStyle;
+    private LineageSystemSettingListPreference mStatusBarClockDatePosition;
+    private LineageSystemSettingListPreference mStatusBarClockDateFormat;
     private LineageSystemSettingListPreference mStatusBarBatteryShowPercent;
 
     private PreferenceCategory mStatusBarBatteryCategory;
@@ -73,6 +81,18 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
         addPreferencesFromResource(R.xml.status_bar_settings);
 
         mStatusBarAmPm = findPreference(STATUS_BAR_AM_PM);
+        mStatusBarClockDateDisplay = findPreference(STATUS_BAR_CLOCK_DATE_DISPLAY);
+        mStatusBarClockDateStyle = findPreference(STATUS_BAR_CLOCK_DATE_STYLE);
+        mStatusBarClockDatePosition = findPreference(STATUS_BAR_CLOCK_DATE_POSITION);
+        mStatusBarClockDateFormat = findPreference(STATUS_BAR_CLOCK_DATE_FORMAT);
+
+        if (mStatusBarClockDateDisplay != null) {
+            mStatusBarClockDateDisplay.setOnPreferenceChangeListener((preference, newValue) -> {
+                enableStatusBarClockDateDependents(Integer.parseInt((String) newValue));
+                return true;
+            });
+            enableStatusBarClockDateDependents(mStatusBarClockDateDisplay.getIntValue(0));
+        }
         mStatusBarClock = findPreference(STATUS_BAR_CLOCK_STYLE);
 
         mStatusBarClockCategory = getPreferenceScreen().findPreference(CATEGORY_CLOCK);
@@ -180,6 +200,13 @@ public class StatusBarSettings extends SettingsPreferenceFragment {
 
         mQsBrightnessSliderPosition.setEnabled(enabled);
         mQsShowAutoBrightness.setEnabled(enabled);
+    }
+
+    private void enableStatusBarClockDateDependents(int dateDisplay) {
+        boolean enabled = dateDisplay != 0;
+        if (mStatusBarClockDateStyle != null) mStatusBarClockDateStyle.setEnabled(enabled);
+        if (mStatusBarClockDatePosition != null) mStatusBarClockDatePosition.setEnabled(enabled);
+        if (mStatusBarClockDateFormat != null) mStatusBarClockDateFormat.setEnabled(enabled);
     }
 
     private void enableStatusBarBatteryDependents(int batteryIconStyle) {
