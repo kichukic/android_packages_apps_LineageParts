@@ -59,7 +59,7 @@ public class PlatLogoActivity extends Activity {
             // LineageOS logo
             mLogo = context.getResources().getDrawable(R.drawable.logo_lineage, context.getTheme());
             mLogo.setColorFilter(new ColorMatrixColorFilter(WHITE)); // apply color filter
-            mLogo.setBounds(0, 0, 360, 180); // Aspect ratio 2:1
+            mLogo.setBounds(0, 0, 240, 240); // 1:1 KIC OS emblem
         }
 
         /**
@@ -168,31 +168,21 @@ public class PlatLogoActivity extends Activity {
             }
             canvas.restore();
 
-            // center circle outline
+            // Draw KIC OS celestial orbit rings
+            paint.setStyle(Paint.Style.STROKE);
+            paint.setStrokeWidth(3 * mDP);
+            canvas.drawCircle(0, 0, mRadius * 1.35f, paint);
+            paint.setStrokeWidth(1.5f * mDP);
+            canvas.drawCircle(0, 0, mRadius * 1.55f, paint);
+
             paint.setStyle(Paint.Style.FILL);
-            canvas.drawCircle(0, 0, mRadius * 1.3f, paint);
+            canvas.drawCircle(0, 0, mRadius * 1.15f, paint);
 
-            // left circle outline
+            // Draw KIC OS Logo drawable
             canvas.save();
             {
-                canvas.translate(-112.5f * mRadius / BASE_SCALE, 28 * mRadius / BASE_SCALE);
-                canvas.drawCircle(0, 0, mRadius * 0.74f, paint);
-            }
-            canvas.restore();
-
-            // right circle outline
-            canvas.save();
-            {
-                canvas.translate(112.5f * mRadius / BASE_SCALE, 28 * mRadius / BASE_SCALE);
-                canvas.drawCircle(0, 0, mRadius * 0.74f, paint);
-            }
-            canvas.restore();
-
-            // Draw LineageOS Logo drawable
-            canvas.save();
-            {
-                canvas.translate((-360 / 2f) * mRadius / BASE_SCALE,
-                                (-180 / 2f) * mRadius / BASE_SCALE);
+                canvas.translate((-240 / 2f) * mRadius / BASE_SCALE,
+                                (-240 / 2f) * mRadius / BASE_SCALE);
                 canvas.scale(mRadius / BASE_SCALE, mRadius / BASE_SCALE);
                 mLogo.draw(canvas);
             }
@@ -225,16 +215,23 @@ public class PlatLogoActivity extends Activity {
                 mTouchHeld = 0;
                 mTapCount = 0;
 
-                // Launch the Easter Egg
+                // Launch the Android 17 Easter Egg
                 mLayout.post(() -> {
                     try {
-                        startActivity(new Intent("org.lineageos.lineageparts.EASTER_EGG")
+                        startActivity(new Intent(Intent.ACTION_MAIN)
                                 .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
                                         | Intent.FLAG_ACTIVITY_CLEAR_TASK
                                         | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS)
                                 .addCategory("com.android.internal.category.PLATLOGO"));
                     } catch (ActivityNotFoundException ex) {
-                        Log.e("PlatLogoActivity", "No more eggs.");
+                        try {
+                            startActivity(new Intent("org.lineageos.lineageparts.EASTER_EGG")
+                                    .setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
+                                            | Intent.FLAG_ACTIVITY_CLEAR_TASK
+                                            | Intent.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS));
+                        } catch (Exception e) {
+                            Log.e("PlatLogoActivity", "No more eggs.", e);
+                        }
                     }
                 });
             }

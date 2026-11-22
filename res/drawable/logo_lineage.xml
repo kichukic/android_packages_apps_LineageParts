@@ -1,17 +1,59 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--
-     SPDX-FileCopyrightText: The LineageOS Project
-     SPDX-License-Identifier: Apache-2.0
--->
 <vector xmlns:android="http://schemas.android.com/apk/res/android"
-    android:width="512dp"
+    android:width="256dp"
     android:height="256dp"
-    android:viewportWidth="512"
+    android:viewportWidth="256"
     android:viewportHeight="256">
 
+    <!-- Outer Celestial Glow Ring -->
     <path
-        android:fillColor="#167c80"
-        android:pathData="M416,128a39.92,39.92,0,0,0-31.11,14.87l-1.5-.6A294.78,294.78,0,0,0,336,128.14s0-.09,0-.14a80,80,0,0,0-160,0s0,.09,0,.13l-1.71
-.37 a293.48,293.48,0,0,0-45.67,13.76l-1.5 .6
-a40,40,0,1,0,7.39,14.28h0a277.34,277.34,0,0,1,43.1-13,80,80,0,0,0,156.73,0,277.3,277.3,0,0,1,43.11,13h0A40,40,0,1,0,416,128ZM96,192a24,24,0,1,1,24-24A24,24,0,0,1,96,192Zm160,0a64,64,0,1,1,64-64A64.07,64.07,0,0,1,256,192Zm160,0a24,24,0,1,1,24-24A24,24,0,0,1,416,192ZM288,128a32,32,0,1,1-32-32A32,32,0,0,1,288,128Z" />
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="6"
+        android:strokeAlpha="0.9"
+        android:pathData="M128,18 A110,110 0 1,0 128,238 A110,110 0 1,0 128,18 Z" />
+
+    <!-- Secondary Orbit Ring -->
+    <path
+        android:strokeColor="#FFFFFF"
+        android:strokeWidth="2.5"
+        android:strokeAlpha="0.6"
+        android:pathData="M128,34 A94,94 0 1,0 128,222 A94,94 0 1,0 128,34 Z" />
+
+    <!-- 4 Cardinal Orbital Markers -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M128,12 A6,6 0 1,0 128,24 A6,6 0 1,0 128,12 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M128,232 A6,6 0 1,0 128,244 A6,6 0 1,0 128,232 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M12,128 A6,6 0 1,0 24,128 A6,6 0 1,0 12,128 Z" />
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M232,128 A6,6 0 1,0 244,128 A6,6 0 1,0 232,128 Z" />
+
+    <!-- 4-Point Constellation Star (Primary Emblem) -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M128,52 L137,105 L190,114 L147,135 L165,188 L128,154 L91,188 L109,135 L66,114 L119,105 Z" />
+
+    <!-- Core Nexus Diamond -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:fillAlpha="0.95"
+        android:pathData="M128,104 L142,128 L128,152 L114,128 Z" />
+
+    <!-- KIC OS Emblem Monogram (K I C) -->
+    <!-- Letter K -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M84,142 L94,142 L94,170 L84,170 Z M94,154 L104,142 L116,142 L102,157 L117,170 L105,170 L94,159 Z" />
+    <!-- Letter I -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M123,142 L133,142 L133,170 L123,170 Z" />
+    <!-- Letter C -->
+    <path
+        android:fillColor="#FFFFFF"
+        android:pathData="M162,148 C158,143 152,141 146,141 C138,141 133,147 133,156 C133,165 138,171 146,171 C152,171 158,169 162,164 L162,157 L152,157 L152,150 L170,150 L170,168 C164,174 156,177 146,177 C133,177 124,168 124,156 C124,144 133,135 146,135 C156,135 164,139 170,146 Z" />
 </vector>
